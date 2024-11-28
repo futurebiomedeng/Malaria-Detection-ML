@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}" class="active">Meet Our Team</a></li>
+                <li><a href="{{ url_for('about') }}" class="active">About Us</a></li>
                 <li><a href="{{ url_for('faq') }}">FAQ</a></li>
                 <li><a href="{{ url_for('helpdesk') }}">Help Desk</a></li>
                 {% if session.get('user') %}
