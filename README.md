@@ -8,3 +8,5 @@ This is our source code for a web-based malaria classification and detection. Fe
 - MongoDB for database storing
 - MobileNetV2 for image classification
 
+## To Predict
+- Please Log in using your email to use our service
