@@ -26,11 +26,25 @@ app.permanent_session_lifetime = timedelta(days=1)
 
 # MongoDB Configuration
 uri = os.getenv("MONGODB_URI")
-client = MongoClient(uri)
-db = client['malaria_detection_db']
-fs = GridFS(db)
-users_collection = db['users']  # Collection to store user data
-predictions_collection = db['predictions']
+import os
+from pymongo import MongoClient
+from gridfs import GridFS
+
+# Get MongoDB URI from environment variable
+uri = os.getenv("MONGODB_URI")
+
+# Try to connect to MongoDB
+try:
+    client = MongoClient(uri)
+    db = client['malaria_detection_db']
+    fs = GridFS(db)
+    users_collection = db['users']  # Collection to store user data
+    predictions_collection = db['predictions']
+    
+    # Check if the database is connected
+    print("Successfully connected to the database:", db.name)
+except Exception as e:
+    print("Failed to connect to the database. Error:", e)
 
 # Ensure Uploads Directory Exists
 UPLOAD_FOLDER = "uploads"
